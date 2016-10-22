@@ -28,7 +28,7 @@ class Ameren(Utility):
     def __init__(self):
         pass
 
-    def fake_ameren_customers(self):
+    def fake_customers(self):
         """
         Return a list of fake customers.
         """
@@ -45,9 +45,40 @@ class Ameren(Utility):
         Here is where we would access the Ameren API to get the list of unpaid customers.
         Since there is no Ameren API at the moment, we will generate fake customers for now.
         """
-        unpaid_customers = self.fake_ameren_customers()
+        unpaid_customers = self.fake_customers()
 
         return unpaid_customers
 
     def type(self):
         return "Electricity"
+
+class Laclede(Utility):
+    """
+    Abstraction of the Laclede API.
+    This class would wrap the calls to the Laclede API in the future.
+    """
+
+    def __init__(self):
+        pass
+
+    def fake_customers(self):
+        """
+        Return a list of fake customers.
+        """
+        customers = set()
+
+        customers.add(Customer("Eugene", "Matsumura", "2112223333"))
+
+        return customers
+
+    def get_unpaid_customers(self):
+        """
+        Here is where we would access the Laclede API to get the list of unpaid customers.
+        Since there is no Laclede API at the moment, we will generate fake customers for now.
+        """
+        unpaid_customers = self.fake_customers()
+
+        return unpaid_customers
+
+    def type(self):
+        return "Gas"
