@@ -1,17 +1,15 @@
 from utility import Ameren, Laclede
-from flask import Flask
-from flask import request
+from flask import Flask, request
+from predictor import app
 
 import random
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data.db import db, Person
 
-app = Flask(__name__)
-
 @app.route('/')
 def hello():
-    return "hi. Try /at_risk"
+    return "hi... Try /at_risk"
 
 @app.route('/at_risk', methods=['GET'])
 def get_at_risk_customers():

@@ -3,8 +3,7 @@ from flask import Flask, render_template
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data.db import DataHelper, db
-
-app = Flask(__name__)
+from ui import app
 
 @app.route('/')
 def Index():
