@@ -1,5 +1,6 @@
 from customer import Customer
 from abc import ABCMeta, abstractmethod
+from phone_numbers import PhoneNumbers
 
 class Utility(object):
     """
@@ -34,9 +35,10 @@ class Ameren(Utility):
         """
         customers = set()
 
-        customers.add(Customer("Joanne", "Cook", "1112223333"))
-        customers.add(Customer("Donald", "Townsend", "1112223334"))
-        customers.add(Customer("Patricia", "Johnson", "1112223335"))
+        phone_numbers = PhoneNumbers()
+        customers.add(Customer("Joanne", "Cook", phone_numbers.get_phone_number()))
+        customers.add(Customer("Donald", "Townsend", phone_numbers.get_phone_number()))
+        customers.add(Customer("Patricia", "Johnson", phone_numbers.get_phone_number()))
 
         return customers
 
@@ -67,7 +69,8 @@ class Laclede(Utility):
         """
         customers = set()
 
-        customers.add(Customer("Eugene", "Matsumura", "2112223333"))
+        phone_numbers = PhoneNumbers()
+        customers.add(Customer("Eugene", "Matsumura", phone_numbers.get_phone_number()))
 
         return customers
 

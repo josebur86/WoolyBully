@@ -2,6 +2,7 @@ from utility import Ameren, Laclede
 from flask import Flask
 from flask import request
 
+import random
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data.db import db, Person
@@ -29,14 +30,27 @@ def get_at_risk_customers():
     # Insert the at-risk customers into the database.
     db.create_all()
     for customer in at_risk_customers:
-        person = Person(customer.first_name, customer.last_name, customer.phone_number, 1)
+        person = db.session.query(Person).filter_by(phone_num=customer.phone_number).one_or_none()
+        if (person == None):
+            person = Person(customer.first_name, customer.last_name, customer.phone_number, generate_risk_value())
+        else:
+            person.risk_value = generate_risk_value()
+
         db.session.add(person)
         db.session.commit()
 
     #TODO: Based on the at-risk customers we have found, let's compute the risk_index of each customer.
+    # Use the phone number as the unique identifier.
+    # Add the customer if they aren't in the database, update the risk value
+    # if they are.
+    # The risk value will be a random value between 0-100
 
     # Return all of the customers as a string for now.
     all_at_risk_customers = ""
     for customer in at_risk_customers:
         all_at_risk_customers += str(customer)
     return all_at_risk_customers
+
+def generate_risk_value():
+    result = random.randrange(1, 100)
+    return result
