@@ -1,37 +1,22 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Wooly Bully</title>
-        <!--add styles later>
-        <link rel="stylesheet" href="/css/style.css"-->
-    </head>
+{% extends 'base.html' %}
+
+{% block content %}
     <body>
         <table style="width:100%">
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Name</th>
                 <th>Contact</th>
             </tr>
+
+            {% for person in persons %}
             <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>(314)500-7346</td>
+                <td>{{person.name}}</td>
+                <td>{{person.number}}</td>
             </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>(314)890-7398</td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>Steven</td>
-                <td>(314)854-7668</td>
-            </tr>
-            <tr>
-                <td>First</td>
-                <td>Last</td>
-                <td>(314)670-2398</td>
-            </tr>
+
+            {% endfor %}
         </table>
     </body>
 </html>
+
+{% endblock %}
