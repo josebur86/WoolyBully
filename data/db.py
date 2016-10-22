@@ -16,7 +16,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 # TODO(joe): Figure out the best place to create this database.
 # On my machine this puts it in the C:/ directory.
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
 class Person(db.Model):
