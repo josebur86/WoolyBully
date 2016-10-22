@@ -24,7 +24,7 @@ class Person(db.Model):
     first_name = db.Column(db.String(120))
     last_name = db.Column(db.String(120))
     #email = db.Column(db.String(120), unique=True)
-    phone_num = db.Column(db.String(20), unique=True)
+    phone_num = db.Column(db.String(20), unique=False)
     risk_value = db.Column(db.Integer)
 
     def __init__(self, first_name, last_name, phone_num, risk_value):

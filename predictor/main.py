@@ -27,6 +27,7 @@ def get_at_risk_customers():
         at_risk_customers = at_risk_customers.union(unpaid_customers)
 
     # Insert the at-risk customers into the database.
+    db.create_all()
     for customer in at_risk_customers:
         person = Person(customer.first_name, customer.last_name, customer.phone_number, 1)
         db.session.add(person)
