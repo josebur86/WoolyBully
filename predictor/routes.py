@@ -30,7 +30,7 @@ def get_at_risk_customers():
     for customer in at_risk_customers:
         person = db.session.query(Person).filter_by(phone_num=customer.phone_number).one_or_none()
         if (person == None):
-            person = Person(customer.first_name, customer.last_name, customer.phone_number, generate_risk_value(), customer.sex, customer.veteran, customer.disabled, customer.age)
+            person = Person(customer.first_name, customer.last_name, customer.phone_number, generate_risk_value(), customer.veteran, customer.sex, customer.disabled, customer.age)
             db.session.add(person)
             add_risk_factor_for(person)
             db.session.commit()
