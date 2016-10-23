@@ -64,9 +64,10 @@ class DataHelper:
 
     def get_risk_factors_for(self, person):
         risk_factors = person.riskfactors.all()
-        result = []
+        result = dict()
         for risk in risk_factors:
-            result.append("%s: %i" % (risk.type, risk.value))
+            # result.append("%s: %i" % (risk.type, risk.value))
+            result[risk.type] = risk.value
 
         #print result
         return result
