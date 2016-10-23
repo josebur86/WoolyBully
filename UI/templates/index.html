@@ -15,7 +15,7 @@
 
             {% for person in persons %}
             <tbody>
-                <tr>
+                <tr data-toggle="collapse" data-target="#accordion" class="clickable">
                     <td>{{person.first_name}}</td>
                     <td>{{person.last_name}}</td>
                     <td>{{person.phone_num}}</td>
@@ -27,13 +27,20 @@
                     {% else %}
                         <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
                     {% endif %}
+
                     <td>
                       {% for risk in db_helper.get_risk_factors_for(person) %}
                       {{risk}}<br />
                       {% endfor %}
                     </td>
+
                     <td><input type=button value="Yes"></td>
                     <td>{{person.last_contacted}}</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div id="accordion" class="collapse">Hidden by default</div>
+                    </td>
                 </tr>
             </tbody>
             {% endfor %}
