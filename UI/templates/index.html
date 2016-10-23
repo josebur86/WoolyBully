@@ -16,7 +16,16 @@
                 <td>{{person.first_name}}</td>
                 <td>{{person.last_name}}</td>
                 <td>{{person.phone_num}}</td>
-                <td><input type="text" value={{person.risk_value}} class="dial"></td>
+
+                {% if person.risk_value|string() < 33|string() %}
+                    <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#008000"></td>
+                {% else %}
+                    {% if person.risk_value|string() < 66|string() %}
+                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ffff00"></td>
+                    {% else %}
+                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
+                    {% endif %}
+                {% endif %}
                 <td><input type=checkbox>{{person.last_contacted}}</td>
             </tr>
 
