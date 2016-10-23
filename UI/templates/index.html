@@ -40,7 +40,7 @@
                     <!-- Shutoff date image-->
                     <td align="center">
                         {% if "Shutoff date established" in risk_factors %}
-                            <img src="..\static\error.png" class="img-responsive" style="width:40px;height:40px"/>
+                            <img src="..\static\error.png" class="img-responsive" style="width:40px;height:40px" title="{{shutoff_dates|random()}}"/>
                         {% endif %}
                     </td>
                 </tr>
