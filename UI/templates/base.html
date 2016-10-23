@@ -1,10 +1,17 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Wooly Bully</title>
-        <!--add styles later>
-        <link rel="stylesheet" href="/css/style.css"-->
-    </head>
-    {% block content %}
-    {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wooly Bully</title>
+  </head>
+  <nav>
+    <li><a href="/">home</a></li>
+    <li><a href="/">new</a></li>
+    <li><a href="/">all</a></li>
+    <li><a href="/">login</a></li>
+    <li><a href="/">logout</a>
+  </nav>
+  <body>
+      {% block content %}
+      {% endblock %}
+  </body>
 </html>

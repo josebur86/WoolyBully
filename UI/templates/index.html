@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <body>
-        <table style="width:100%">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact</th>
-            </tr>
 
-            {% for person in persons %}
-            <tr>
+<table style="width:100%">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact Info</th>
+        <th>Contacted Recently</th>
+    </tr>
+
+    {% for person in persons %}
+    <tr>
                 <td>{{person.first_name}}</td>
                 <td>{{person.last_name}}</td>
                 <td>{{person.phone_num}}</td>
+                <td><input type="checkbox" name="contacted" value="{{person.contacted}}"></td>
             </tr>
 
-            {% endfor %}
-        </table>
-    </body>
-</html>
+    {% endfor %}
+</table>
 
 {% endblock %}
