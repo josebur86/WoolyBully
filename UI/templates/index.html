@@ -48,13 +48,24 @@
                     <td colspan="7" class="hiddenRow text-left">
                         <div id="{{accordionId}}" class="collapse">
                             <center>
-                            {% for risk_key in risk_factors %}
-                                {% if risk_key != "Shutoff date established" %}
-                                    <strong>{{risk_key + ": $" + risk_factors[risk_key]|string()}}</strong><br />
-                                {%endif %}
-                            {% endfor %}
+                                <p>
+                                    Utilities Late For:</br>
+                                    Age:</br>
+                                    Sex:</br>
+                                    Veteran Status:</br>
+                                    Disability Status:</br>
+                                </p>
                                 <p></p>
-                                <a href="#">I have contacted this person.</a>
+                                </br>
+                                <b>
+                                    {% for risk_key in risk_factors %}
+                                        {% if risk_key != "Shutoff date established" %}
+                                        <strong>{{risk_key + ": $" + risk_factors[risk_key]|string()}}</strong><br />
+                                        {%endif %}
+                                    {% endfor %}
+                                    <p></p>
+                                    <a href="#">I have contacted this person.</a>
+                                </b>
                             </center>
                         </div>
                     </td>
