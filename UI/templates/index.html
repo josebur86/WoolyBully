@@ -24,7 +24,7 @@
                 {% else %}
                     <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
                 {% endif %}
-                <td><input type=checkbox>{{person.last_contacted}}</td>
+                <td><input type=button value={{person.last_contacted}}></td>
             </tr>
 
             {% endfor %}
