@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data.db import DataHelper, db
@@ -16,3 +16,7 @@ def Index():
 @app.route('/login')
 def log_in():
     return render_template('login.html', form=signInForm())
+
+@app.route('/login', methods=['POST'])
+def submit():
+    return redirect('/')

@@ -15,4 +15,5 @@ if len(sys.argv) > 1:
         predictor.app.run(host='0.0.0.0', port=predictor_port)
 else:
     ui.app.config['TEMPLATES_AUTO_RELOAD'] = True
+    ui.app.config['WTF_CSRF_ENABLED'] = False
     ui.app.run(host='0.0.0.0', port=ui_port)
