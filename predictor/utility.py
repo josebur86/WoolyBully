@@ -36,10 +36,10 @@ class Ameren(Utility):
         customers = set()
 
         phone_numbers = PhoneNumbers()
-        customers.add(Customer("Joanne", "Cook", phone_numbers.get_phone_number()))
-        customers.add(Customer("Donald", "Townsend", phone_numbers.get_phone_number()))
-        customers.add(Customer("Patricia", "Johnson", phone_numbers.get_phone_number()))
-        customers.add(Customer("John", "Griffin", phone_numbers.get_phone_number()))
+        customers.add(Customer("Joanne", "Cook", phone_numbers.get_phone_number(), "No", "Female", "No", 45))
+        customers.add(Customer("Donald", "Townsend", phone_numbers.get_phone_number(), "Yes", "Male", "Yes", 58))
+        customers.add(Customer("Patricia", "Johnson", phone_numbers.get_phone_number(), "No", "Female", "No", 30))
+        customers.add(Customer("John", "Griffin", phone_numbers.get_phone_number(), "Yes", "Male", "No", 38))
 
         return customers
 
@@ -71,12 +71,12 @@ class Laclede(Utility):
         customers = set()
 
         phone_numbers = PhoneNumbers()
-        customers.add(Customer("Eugene", "Matsumura", phone_numbers.get_phone_number()))
-        customers.add(Customer("Thomas", "Konstantyn", phone_numbers.get_phone_number()))
-        customers.add(Customer("Allen", "Patrick", phone_numbers.get_phone_number()))
-        customers.add(Customer("Bethany", "Snyder", phone_numbers.get_phone_number()))
-        customers.add(Customer("Doris", "Gibbs", phone_numbers.get_phone_number()))
-        customers.add(Customer("Thomas", "Washington", phone_numbers.get_phone_number()))
+        customers.add(Customer("Eugene", "Matsumura", phone_numbers.get_phone_number(), "No", "Male", "No", 46))
+        customers.add(Customer("Thomas", "Konstantyn", phone_numbers.get_phone_number(), "No", "Male", "Yes", 27))
+        customers.add(Customer("Allen", "Patrick", phone_numbers.get_phone_number(), "Yes", "Male", "No", 38))
+        customers.add(Customer("Bethany", "Snyder", phone_numbers.get_phone_number(), "No", "Female", "No", 32))
+        customers.add(Customer("Doris", "Gibbs", phone_numbers.get_phone_number(), "Yes", "Female", "No", 83))
+        customers.add(Customer("Thomas", "Washington", phone_numbers.get_phone_number(), "No", "Male", "No", 52))
 
         return customers
 

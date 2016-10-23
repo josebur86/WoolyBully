@@ -30,7 +30,7 @@ def get_at_risk_customers():
     for customer in at_risk_customers:
         person = db.session.query(Person).filter_by(phone_num=customer.phone_number).one_or_none()
         if (person == None):
-            person = Person(customer.first_name, customer.last_name, customer.phone_number, generate_risk_value())
+            person = Person(customer.first_name, customer.last_name, customer.phone_number, generate_risk_value(), customer.sex, customer.veteran, customer.disabled, customer.age)
             db.session.add(person)
             add_risk_factor_for(person)
             db.session.commit()
@@ -54,7 +54,7 @@ def add_risk_factor_for(person):
         db.session.add(factor0)
         db.session.add(factor1)
     else:
-        factor = RiskFactor("Outstanding Balance", random.randrange(100, 400), person)
+        factor = RiskFactor("Outstanding Balance", random.randrange(100, 375), person)
         db.session.add(factor)
 
 def generate_risk_value():

@@ -31,12 +31,21 @@ class Person(db.Model):
     phone_num = db.Column(db.String(20), unique=False)
     risk_value = db.Column(db.Integer)
     last_contacted = db.Column(db.Date)
+    #
+    veteran = db.Column(db.String(5))
+    sex = db.Column(db.String(10))
+    disabled = db.Column(db.String(5))
+    age = db.Column(db.Integer)
 
-    def __init__(self, first_name, last_name, phone_num, risk_value):
+    def __init__(self, first_name, last_name, phone_num, risk_value, veteran, sex, disabled, age):
         self.first_name = first_name
         self.last_name = last_name
         self.phone_num = phone_num
         self.risk_value = risk_value
+        self.veteran = veteran
+        self.sex = sex
+        self.disabled = disabled
+        self.age = age
 
     # def __repr__(self):
     #     return '<%i Person>' % self.id
