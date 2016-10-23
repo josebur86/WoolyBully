@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <body>
-        <table style="width:100%" class="table table-hover">
+    <body class="text-center">
+        <table class="table table-hover">
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/> <!-- Because why not -->
             <thead class="thead-inverse">
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact</th>
-                <th>Last Contacted</th>
-                <th>Risk Index</th>
-                <th>Shutoff Date Set</th>
+                <th class="text-center">First Name</td>
+                <th class="text-center">Last Name</th>
+                <th class="text-center">Contact</th>
+                <th class="text-center">Last Contacted</th>
+                <th class="text-center">Risk Index</th>
+                <th class="text-center">Shutoff Date Set</th>
             </thead>
 
             {% set cnt = 0 %}
@@ -20,31 +21,31 @@
                 {% set accordionClass = "#accordion"+cnt|string() %}{% set accordionClass = "#accordion"+cnt|string() %}
                 {% set accordionId = "accordion"+cnt|string() %}
                 <tr data-toggle="collapse" data-target={{accordionClass}} class="clickable">
-                    <td>{{person.first_name}}</td>
-                    <td>{{person.last_name}}</td>
-                    <td>{{person.phone_num}}</td>
+                    <td class="text-center">{{person.first_name}}</td>
+                    <td class="text-center">{{person.last_name}}</td>
+                    <td class="text-center">{{person.phone_num}}</td>
 
 
-                    <td>{{person.last_contacted}}</td>
+                    <td class="text-center">{{person.last_contacted}}</td>
 
                     <!-- Risk index Dial -->
                     {% if person.risk_value < 33 %}
-                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#008000"></td>
+                        <td class="text-center"><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#008000"></td>
                     {% elif person.risk_value < 66 %}
-                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ffff00"></td>
+                        <td class="text-center"><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ffff00"></td>
                     {% else %}
-                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
+                        <td class="text-center"><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
                     {% endif %}
 
                     <!-- Shutoff date image-->
-                    <td>
+                    <td align="center">
                         {% if "Shutoff date established" in risk_factors %}
-                            <img src="..\static\error.png" class="img-responsive" style="width:50px;height:50px"/>
+                            <img src="..\static\error.png" class="img-responsive" style="width:40px;height:40px"/>
                         {% endif %}
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="7" class="hiddenRow">
+                    <td colspan="7" class="hiddenRow text-left">
                         <div id="{{accordionId}}" class="collapse">
                             {% for risk_key in risk_factors %}
                                 {% if risk_key != "Shutoff date established" %}
@@ -58,6 +59,9 @@
             </tbody>
             {% endfor %}
         </table>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     </body>
 </html>
 
