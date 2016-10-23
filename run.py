@@ -9,6 +9,7 @@ predictor_port = int(os.environ.get("PORT", 5001))
 if len(sys.argv) > 1:
     if sys.argv[1] == "u":
         ui.app.config['TEMPLATES_AUTO_RELOAD'] = True
+        ui.app.config['WTF_CSRF_ENABLED'] = False
         ui.app.run(host='0.0.0.0', port=ui_port)
     elif sys.argv[1] == "p":
         predictor.app.run(host='0.0.0.0', port=predictor_port)

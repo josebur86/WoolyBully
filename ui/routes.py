@@ -3,6 +3,7 @@ import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data.db import DataHelper, db
 from ui import app
+from forms import signInForm
 
 @app.route('/')
 def Index():
@@ -11,3 +12,7 @@ def Index():
     persons = db_helper.get_all_people();
 
     return render_template('index.html', persons=persons)
+
+@app.route('/login')
+def log_in():
+    return render_template('login.html', form=signInForm())
