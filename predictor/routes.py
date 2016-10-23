@@ -49,13 +49,11 @@ def get_at_risk_customers():
 
 def add_risk_factor_for(person):
     if (person.risk_value > 80):
-        print "High Risk"
         factor0 = RiskFactor("Shutoff date established", 1, person)
         factor1 = RiskFactor("Outstanding Balance", 600, person)
         db.session.add(factor0)
         db.session.add(factor1)
     else:
-        print "Low Risk"
         factor = RiskFactor("Outstanding Balance", 600, person)
         db.session.add(factor)
 
