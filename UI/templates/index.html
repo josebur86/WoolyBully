@@ -12,11 +12,11 @@
 
     {% for person in persons %}
     <tr>
-                <td>{{person.first_name}}</td>
-                <td>{{person.last_name}}</td>
-                <td>{{person.phone_num}}</td>
-                <td><input type="checkbox" name="contacted" value="{{person.contacted}}"></td>
-            </tr>
+        <td>{{person.first_name}}</td>
+        <td>{{person.last_name}}</td>
+        <td>{{person.phone_num}}</td>
+        <td><input type="checkbox" name="contacted" value=""></td>
+    </tr>
 
     {% endfor %}
 </table>
