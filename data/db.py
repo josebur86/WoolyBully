@@ -68,5 +68,5 @@ class DataHelper:
         for risk in risk_factors:
             result.append("%s: %i" % (risk.type, risk.value))
 
-        print result
+        #print result
         return result
