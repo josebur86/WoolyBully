@@ -2,30 +2,32 @@
 
 {% block content %}
     <body>
-        <table style="width:100%">
-            <tr>
+        <table style="width:100%" class="table table-hover">
+            <thead class="thead-inverse">
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Contact</th>
                 <th>Risk Value</th>
                 <th>Last Contacted</th>
-            </tr>
+            </thead>
 
             {% for person in persons %}
-            <tr>
-                <td>{{person.first_name}}</td>
-                <td>{{person.last_name}}</td>
-                <td>{{person.phone_num}}</td>
+            <tbody>
+                <tr>
+                    <td>{{person.first_name}}</td>
+                    <td>{{person.last_name}}</td>
+                    <td>{{person.phone_num}}</td>
 
-                {% if person.risk_value < 33 %}
-                    <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#008000"></td>
-                {% elif person.risk_value < 66 %}
-                    <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ffff00"></td>
-                {% else %}
-                    <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
-                {% endif %}
-                <td><input type=button value={{person.last_contacted}}></td>
-            </tr>
+                    {% if person.risk_value < 33 %}
+                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#008000"></td>
+                    {% elif person.risk_value < 66 %}
+                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ffff00"></td>
+                    {% else %}
+                        <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
+                    {% endif %}
+                    <td><input type=button value={{person.last_contacted}}></td>
+                </tr>
+            </tbody>
 
             {% endfor %}
         </table>
