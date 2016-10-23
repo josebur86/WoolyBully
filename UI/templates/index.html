@@ -13,9 +13,13 @@
                 <th>Last Contacted</th>
             </thead>
 
+            {% set cnt = 0 %}
             {% for person in persons %}
+                {% set cnt = cnt + 1 %}
             <tbody>
-                <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+                {% set accordionClass = "#accordion"+cnt|string() %}{% set accordionClass = "#accordion"+cnt|string() %}
+                {% set accordionId = "accordion"+cnt|string() %}
+                <tr data-toggle="collapse" data-target={{accordionClass}} class="clickable">
                     <td>{{person.first_name}}</td>
                     <td>{{person.last_name}}</td>
                     <td>{{person.phone_num}}</td>
@@ -39,9 +43,9 @@
                 </tr>
                 <tr>
                     <td colspan="7">
-                        <div id="accordion" class="collapse">
+                        <div id="{{accordionId}}" class="collapse">
                             {% for risk in db_helper.get_risk_factors_for(person) %}
-                                {{risk}}<br/>
+                                {{risk}}<br />
                             {% endfor %}
                         </div>
                     </td>
