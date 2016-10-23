@@ -50,11 +50,11 @@ def get_at_risk_customers():
 def add_risk_factor_for(person):
     if (person.risk_value > 80):
         factor0 = RiskFactor("Shutoff date established", 1, person)
-        factor1 = RiskFactor("Outstanding Balance", 600, person)
+        factor1 = RiskFactor("Outstanding Balance", random.randrange(400, 1000), person)
         db.session.add(factor0)
         db.session.add(factor1)
     else:
-        factor = RiskFactor("Outstanding Balance", 600, person)
+        factor = RiskFactor("Outstanding Balance", random.randrange(100, 400), person)
         db.session.add(factor)
 
 def generate_risk_value():

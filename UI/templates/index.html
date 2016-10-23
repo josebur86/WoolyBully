@@ -47,12 +47,15 @@
                 <tr>
                     <td colspan="7" class="hiddenRow text-left">
                         <div id="{{accordionId}}" class="collapse">
+                            <center>
                             {% for risk_key in risk_factors %}
                                 {% if risk_key != "Shutoff date established" %}
-                                    {{risk_key + ": " + risk_factors[risk_key]|string()}}<br />
+                                    {{risk_key + ": $" + risk_factors[risk_key]|string()}}<br />
                                 {%endif %}
                             {% endfor %}
-                            <p>Contacted?<input type=button value="Yes"></p>
+                                <p></p>
+                                <a href="www.google.com">I have contacted this person.</a>
+                            </center>
                         </div>
                     </td>
                 </tr>
