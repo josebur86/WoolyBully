@@ -39,6 +39,6 @@ class Person(db.Model):
 
 class DataHelper:
     def get_all_people(self):
-        people = Person.query.all()
+        people = Person.query.order_by(Person.risk_value.desc()).all()
         #print people
         return people
