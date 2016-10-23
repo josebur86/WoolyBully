@@ -39,7 +39,11 @@
                 </tr>
                 <tr>
                     <td colspan="7">
-                        <div id="accordion" class="collapse">Hidden by default</div>
+                        <div id="accordion" class="collapse">
+                            {% for risk in db_helper.get_risk_factors_for(person) %}
+                                {{risk}}<br/>
+                            {% endfor %}
+                        </div>
                     </td>
                 </tr>
             </tbody>
