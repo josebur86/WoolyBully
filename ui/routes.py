@@ -6,7 +6,7 @@ from ui import app
 from forms import signInForm
 
 last_contacted = ["March 18, 2016", "October 21, 2016", "January 1, 2016","September 7, 2016","October 2, 2016","July 1, 2016","October 9, 2016"]
-shutoff = last_contacted = ["October 31, 2016", "October 31, 2016","November 7, 2016","November 2, 2016","November 1, 2016","October 29, 2016"]
+shutoff = ["October 31, 2016", "October 31, 2016","November 7, 2016","November 2, 2016","November 1, 2016","October 29, 2016"]
 
 @app.route('/')
 def Index():
