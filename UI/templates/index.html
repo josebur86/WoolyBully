@@ -42,7 +42,7 @@
                     <td>{{person.last_contacted}}</td>
                 </tr>
                 <tr>
-                    <td colspan="7">
+                    <td colspan="7" class="hiddenRow">
                         <div id="{{accordionId}}" class="collapse">
                             {% for risk in db_helper.get_risk_factors_for(person) %}
                                 {{risk}}<br />
