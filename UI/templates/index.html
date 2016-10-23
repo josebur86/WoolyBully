@@ -8,6 +8,7 @@
                 <th>Last Name</th>
                 <th>Contact</th>
                 <th>Risk Value</th>
+                <th>Risk Factors</th>
                 <th>Contacted?<th>
                 <th>Last Contacted</th>
             </thead>
@@ -26,11 +27,15 @@
                     {% else %}
                         <td><input type="text" value={{person.risk_value}} class="dial" data-fgColor="#ff0000"></td>
                     {% endif %}
+                    <td>
+                      {% for risk in db_helper.get_risk_factors_for(person) %}
+                      {{risk}}<br />
+                      {% endfor %}
+                    </td>
                     <td><input type=button value="Yes"></td>
                     <td>{{person.last_contacted}}</td>
                 </tr>
             </tbody>
-
             {% endfor %}
         </table>
     </body>

@@ -11,7 +11,7 @@ def Index():
     db_helper = DataHelper()
     persons = db_helper.get_all_people();
 
-    return render_template('index.html', persons=persons)
+    return render_template('index.html', persons=persons, db_helper=db_helper)
 
 @app.route('/login')
 def log_in():

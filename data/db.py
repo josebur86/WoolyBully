@@ -19,6 +19,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
+def recreate_db():
+    db.drop_all()
+    db.create_all()
+
 class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(120))
@@ -37,8 +41,32 @@ class Person(db.Model):
     # def __repr__(self):
     #     return '<%i Person>' % self.id
 
+# Late payments
+# Outstanding balance
+# Shut off date established
+class RiskFactor(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(50))
+    value = db.Column(db.Integer)
+    person_id = db.Column(db.Integer, db.ForeignKey('person.id'))
+    person = db.relationship('Person', backref=db.backref('riskfactors', lazy='dynamic'))
+
+    def __init__(self, type, value, person):
+        self.type = type
+        self.value = value
+        self.person = person
+
 class DataHelper:
     def get_all_people(self):
         people = Person.query.order_by(Person.risk_value.desc()).all()
         #print people
         return people
+
+    def get_risk_factors_for(self, person):
+        risk_factors = person.riskfactors.all()
+        result = []
+        for risk in risk_factors:
+            result.append("%s: %i" % (risk.type, risk.value))
+
+        print result
+        return result
