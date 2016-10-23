@@ -26,7 +26,7 @@
                     <td class="text-center">{{person.phone_num}}</td>
 
 
-                    <td class="text-center">{{person.last_contacted}}</td>
+                    <td class="text-center">{{contact_dates|random()}}</td>
 
                     <!-- Risk index Dial -->
                     {% if person.risk_value < 33 %}
